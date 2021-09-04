@@ -360,6 +360,21 @@ sets:
       LLVM_IAS: 0
   - git_repo: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
     git_ref: master
+    target_arch: s390
+    toolchain: clang-nightly
+    kconfig:
+    - defconfig
+    - CONFIG_KCSAN=y
+    - CONFIG_KCSAN_KUNIT_TEST=y
+    - CONFIG_KUNIT=y
+    targets:
+    - config
+    - kernel
+    - modules
+    make_variables:
+      LLVM_IAS: 0
+  - git_repo: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+    git_ref: master
     target_arch: x86_64
     toolchain: clang-nightly
     kconfig: defconfig
